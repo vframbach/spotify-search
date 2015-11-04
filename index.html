@@ -19,12 +19,27 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1 class="text-center">Spotify Search</h1>
-        <div id="results"></div>
+        <hr>
+        <form id="search">
+          <div class="form-group">
+            <input type="text" class="form-control" id="tracks" placeholder="search tracks">
+            <input type="submit" value="search" class="btn btn-primary">
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
-  <!-- jquery -->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3"><strong>Track</strong></div>
+      <div class="col-xs-3"><strong>Artist</strong></div>
+      <div class="col-xs-3"><strong>Image</strong></div>
+      <div class="col-xs-3"><strong>Preview</strong></div>
+    </div>
+  </div>
+  <div class="container" id="results">
+  </div>  
+   <!-- jquery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
   <!-- bootstrap js -->
