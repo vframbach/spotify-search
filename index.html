@@ -38,7 +38,28 @@
     </div>
   </div>
   <div class="container" id="results">
-  </div>  
+  </div>
+
+<!-- handlebars template-->
+  <script id="tracks-template" type="text/x-handlebars-template">
+    {{#each tracks}}
+      <div class="row">
+        <div class="col-xs-3">{{name}}</div>
+        <div class="col-xs-3">{{artists.[0].name}}</div>
+        <div class="col-xs-3">
+          {{#if album.images.[2].url}}
+            <img src="{{album.images.[2].url}}">
+          {{else}}
+            No image available
+          {{/if}}
+        </div>
+        <div class="col-xs-3"><a class="btn btn-primary" href="{{preview_url}}">Preview</a></div>
+      </div>
+    {{/each}}
+  </script>
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
+
    <!-- jquery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 

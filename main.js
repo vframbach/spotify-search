@@ -17,23 +17,13 @@ $(function() {
 	
 		console.log(data);
 		
-		var tracksResults = data.tracks.items;
+		var trackResults = data.tracks.items;
+		var source = $('#tracks-template').html();
+		var template = Handlebars.compile(source);
 
-		tracksResults.forEach(function (track) {
-			console.log(track);
-			var row = $('<div class="row"></div>');
-			$(row).append('<div class="col-xs-3">' + track.name + '</div>');
-			$(row).append('<div class="col-xs-3">' + track.artists[0].name + '</div>');
+		var trackHtml = template({ tracks: trackResults });
 
-			var albumImages = track.album.images;
-			if (albumImages.length >= 2) {
-				$(row).append('<div class="col-xs-3"><img src="'+albumImages[2].url+'"></div>');
-			}	else {
-				$(row).append('<div class="col-xs-3">No image available</div>');
-			}
-			$(row).append('<div class="col-xs-3"><a class="btn btn-primary" href="'+track.preview_url+'">Preview</a></div>');
-			$('#results').append(row);
-		});
+		$('#results').html(trackHtml);
 
 		
 	});
